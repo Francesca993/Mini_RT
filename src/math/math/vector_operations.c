@@ -25,11 +25,28 @@ Serve per avere direzioni “pure”, indipendenti dalla distanza
 Direzione rimane la stessa, ma la lunghezza è sempre 1
 In raytracing si usa un sacco per i raggi e le normali
 */ 
-void	normalize_vec(t_vector *vec)
+
+/*void	normalize_vec(t_vector *vec)
 {
 	scale_vec(vec, vec, 1 / vec_magnitude(vec));
 	vec->w = 0;
+}*/
+
+void normalize_vec(t_vector *vec)
+{
+	double mag = vec_magnitude(vec);
+	if (mag < EPSILON)
+	{
+		vec->x = 0;
+		vec->y = 0;
+		vec->z = 0;
+		vec->w = 0;
+		return;
+	}
+	scale_vec(vec, vec, 1.0 / mag);
+	vec->w = 0;
 }
+
 
 /*
  Misura quanto due frecce puntano nella stessa direzione Serve per:

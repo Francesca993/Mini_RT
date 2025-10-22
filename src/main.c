@@ -18,8 +18,6 @@
 // 	mat_inverse(&shape->inv_transf, &shape->transf);
 // 	ft_memcpy(&shape->norm_transform, &shape->inv_transf, sizeof(t_mat4));
 // 	transpose_matrix(&shape->norm_transform);
-//     t_color cast_reflection_ray(t_scene *scene, t_intersection *intersection,
-//                             int remaining, int light_idx);
 // }
 
 void	print_usage(const char *prog)

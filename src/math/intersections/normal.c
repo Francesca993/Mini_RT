@@ -33,7 +33,7 @@ t_vector	plane_normal(const t_shape *shape)
 }
 
 
-t_vector	sphere_normal(t_vector *normal, const t_shape *shape,
+/*t_vector	sphere_normal(t_vector *normal, const t_shape *shape,
 				const t_vector *itx_point)
 {
 	t_vector	world_normal;
@@ -45,7 +45,17 @@ t_vector	sphere_normal(t_vector *normal, const t_shape *shape,
 	world_normal.w = 0;
 	normalize_vec(&world_normal);
 	return (world_normal);
+}*/
+
+t_vector	sphere_normal(t_vector *out, const t_shape *sphere, const t_vector *point)
+{
+	sub_vec(out, point, &sphere->origin);
+
+	normalize_vec(out);
+	out->w = 0;
+	return (*out);
 }
+
 
 /*
 Di che oggetto si tratta?

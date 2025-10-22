@@ -126,8 +126,6 @@ t_color	shade_point(t_intersections *arr, t_scene *scene, t_ray *ray)
 		while (light_idx < scene->n_lights) // modificato 
 		{
 			surface_color = phong(itx, scene, light_idx);
-			reflected = cast_reflection_ray(scene, itx,
-					scene->settings.reflection_depth, light_idx);
 			add_colors(&final_color, &final_color, &surface_color);
 			add_colors(&final_color, &final_color, &reflected);
 			light_idx++;

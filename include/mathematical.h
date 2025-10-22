@@ -153,8 +153,6 @@ bool	is_shadowed(t_scene *scene, int light_idx, t_vector *itx_point);
 			//double *angle);
 void	calculate_specular(t_vector *reflect_v, t_intersection *itx,
 			t_phong *phong, t_light *light);
-t_color	cast_reflection_ray(t_scene *scene, t_intersection *intersection,
-		int remaining, int light_idx);
 t_color	phong(t_intersection *itx, t_scene *scene, int light_idx);
 
 # endif
