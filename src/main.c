@@ -6,11 +6,21 @@
 /*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 10:51:18 by fmontini          #+#    #+#             */
-/*   Updated: 2025/10/21 09:10:03 by francesca        ###   ########.fr       */
+/*   Updated: 2025/10/22 00:07:50 by francesca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
+
+// void	init_identity_matrices(t_shape *shape)
+// {
+// 	identity_matrix(&shape->transf);
+// 	mat_inverse(&shape->inv_transf, &shape->transf);
+// 	ft_memcpy(&shape->norm_transform, &shape->inv_transf, sizeof(t_mat4));
+// 	transpose_matrix(&shape->norm_transform);
+//     t_color cast_reflection_ray(t_scene *scene, t_intersection *intersection,
+//                             int remaining, int light_idx);
+// }
 
 void	print_usage(const char *prog)
 {
