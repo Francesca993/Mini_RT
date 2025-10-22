@@ -6,7 +6,7 @@
 /*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 10:37:23 by francesca         #+#    #+#             */
-/*   Updated: 2025/10/21 23:53:38 by francesca        ###   ########.fr       */
+/*   Updated: 2025/10/22 11:47:55 by francesca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ int	parse_light_line(t_scene *scene, char *rest_of_line)
 	/* Salva nella scena (normalizza il colore in [0..1]) */
 	scene->lights.position = position_value;
 	scene->lights.intensity = light_ratiovalue;
-	scene->lighst.color = color;
+	scene->lights.color = color;
 	scene->lights.present = true;
 	scene->n_lights += 1;
 	return (0);

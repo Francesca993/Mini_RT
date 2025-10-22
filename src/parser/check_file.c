@@ -6,7 +6,7 @@
 /*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 09:29:04 by francesca         #+#    #+#             */
-/*   Updated: 2025/10/20 17:02:19 by francesca        ###   ########.fr       */
+/*   Updated: 2025/10/22 11:47:17 by francesca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int check_presence(t_scene *scene)
 		return (print_err_msg("Error: Ambiente 'A' mancante"));
 	if (scene->cam.present == false || scene->n_camera == 0)
 		return (print_err_msg("Error: Camera 'C' mancante"));
-	if (scene->light.present == false || scene->n_lights == 0)
+	if (scene->lights.present == false || scene->n_lights == 0)
 		return (print_err_msg("Error: Luce 'L' mancante"));
 
 	/* Duplicati proibiti (subject: maiuscole una sola volta) */

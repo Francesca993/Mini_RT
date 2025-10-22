@@ -6,7 +6,7 @@
 /*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 10:51:18 by fmontini          #+#    #+#             */
-/*   Updated: 2025/10/22 00:07:50 by francesca        ###   ########.fr       */
+/*   Updated: 2025/10/22 11:54:29 by francesca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ int	main(int argc, char **argv)
 		free(scene);
 		return (1);
 	}
+
+	// 
+	
 	// TODO: render / mlx init ...
 	if (scene != NULL)
 		debug_print_scene(scene, "DEBUG SULLA FINE DEL MAIN");
