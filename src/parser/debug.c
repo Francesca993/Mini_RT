@@ -128,9 +128,9 @@ void debug_print_scene(const t_scene *scene_ptr, const char *title)
 
 	/* --- Ambient --- */
 	printf("--- AMBIENT ---\n");
-	debug_print_bool("present", scene_ptr->amb.present);
-	printf("intensity: %.6f\n", scene_ptr->amb.intensity);
-	debug_print_color_255("color:", scene_ptr->amb.color);
+	debug_print_bool("present", scene_ptr->ambient.present);
+	printf("intensity: %.6f\n", scene_ptr->ambient.intensity);
+	debug_print_color_255("color:", scene_ptr->ambient.color);
 	printf("\n");
 
 	/* --- Camera --- */
@@ -144,10 +144,10 @@ void debug_print_scene(const t_scene *scene_ptr, const char *title)
 
 	/* --- Light (mandatory: una sola) --- */
 	printf(" --- LIGHT  --- \n");
-	debug_print_bool("present", scene_ptr->lights.present);
-	debug_print_vector("pos", scene_ptr->lights.position);
-	printf("intensity: %.6f\n", scene_ptr->lights.intensity);
-	debug_print_color_255("color: ", scene_ptr->lights.color);
+	debug_print_bool("present", scene_ptr->lights->present);
+	debug_print_vector("pos", scene_ptr->lights->position);
+	printf("intensity: %.6f\n", scene_ptr->lights->intensity);
+	debug_print_color_255("color: ", scene_ptr->lights->color);
 	printf("\n");
 
 	/* --- Contatori di validazione --- */

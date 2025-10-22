@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/mathRT.h"
-#include <math.h> // per sen e cos
-#include <stddef.h>
+# include "miniRT.h"
 
 void	ft_bzero(void *s, size_t n);
 /*

@@ -10,13 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "mathRT.h"
-# include <stdbool.h>
-# include "shape.h"
-# include "camera.h"
-# include "intersections.h"
-# include <math.h>
-# include <stdio.h>
+# include "miniRT.h"
+
 
 // L'intersezione della sfera non necessita del raggio per essere trasformato
 // ray: raggio in world space (origine + direzione)

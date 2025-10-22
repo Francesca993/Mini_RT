@@ -10,15 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-# include <math.h>
-# include <stdbool.h>
-# include "mathRT.h"
-# include "color.h"
-# include "shape.h"
-# include "intersections.h"
-# include "camera.h"
-
+# include "miniRT.h"
 
 /*
 prende una collisione e calcola tutte le cose utili per luci e riflessioni

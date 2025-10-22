@@ -91,11 +91,11 @@ int check_presence(t_scene *scene)
 		return (print_err_msg("Error: scena non valida (NULL)"));
 
 	/* Presenza minima: A, C, L */
-	if (scene->amb.present == false || scene->n_ambient == 0)
+	if (scene->ambient.present == false || scene->n_ambient == 0)
 		return (print_err_msg("Error: Ambiente 'A' mancante"));
 	if (scene->cam.present == false || scene->n_camera == 0)
 		return (print_err_msg("Error: Camera 'C' mancante"));
-	if (scene->lights.present == false || scene->n_lights == 0)
+	if (scene->lights->present == false || scene->n_lights == 0)
 		return (print_err_msg("Error: Luce 'L' mancante"));
 
 	/* Duplicati proibiti (subject: maiuscole una sola volta) */

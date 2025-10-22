@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/mathRT.h"
+# include "miniRT.h"
 
 /*
 Somma due vettori e salva il risultato in res

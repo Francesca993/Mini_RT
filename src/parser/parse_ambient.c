@@ -59,15 +59,15 @@ int	parse_ambient_line(t_scene *scene, char *rest_of_line)
 	
 	if (scene == NULL || rest_of_line == NULL)
 		return (print_err_msg("Parametro mancante per 'A'"));
-	if (scene->amb.present == true)
+	if (scene->ambient.present == true)
 		return (print_err_msg("Ambiente 'A' definito più di una volta"));
 	scene->n_ambient += 1;
 	cursor = skip_spaces(rest_of_line);
 	if (parse_ambient(&cursor, &color, &ratio_value) == 1)
 		return (1);
-	scene->amb.intensity = ratio_value;
-	scene->amb.color = color;
-	scene->amb.present = true;
+	scene->ambient.intensity = ratio_value;
+	scene->ambient.color = color;
+	scene->ambient.present = true;
 	return 0;
 }
 

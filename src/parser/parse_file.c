@@ -52,9 +52,9 @@ void	scene_reset(t_scene *scene)
     /* 2) init lista vuota + azzera contatori */
     objlist_init(scene);
 	/* --- Ambient --- */
-	scene->amb.intensity = 0.0;
-	scene->amb.color = color_make(0.0, 0.0, 0.0, 0.0);
-	scene->amb.present = false;
+	scene->ambient.intensity = 0.0;
+	scene->ambient.color = color_make(0.0, 0.0, 0.0, 0.0);
+	scene->ambient.present = false;
 	/* --- Camera --- */
 	scene->cam.pos = vector_make(0.0, 0.0, 0.0);
 	scene->cam.dir = vector_make(0.0, 0.0, 0.0);
@@ -62,10 +62,10 @@ void	scene_reset(t_scene *scene)
 	scene->cam.fov = 0.0;
 	scene->cam.present = false;
 	/* --- Light (spot principale del mandatory) --- */
-	scene->lights.position = vector_make(0.0, 0.0, 0.0);
-	scene->lights.intensity = 0.0;
-	scene->lights.color = color_make(0.0, 0.0, 0.0, 0.0);
-	scene->lights.present = false;
+	scene->lights->position = vector_make(0.0, 0.0, 0.0);
+	scene->lights->intensity = 0.0;
+	scene->lights->color = color_make(0.0, 0.0, 0.0, 0.0);
+	scene->lights->present = false;
 	/* --- contatori logici per validazione (A/C/L una sola volta) --- */
 	scene->n_ambient = 0;
 	scene->n_camera = 0;

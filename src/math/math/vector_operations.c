@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/mathRT.h"
-#include <math.h>
+# include "miniRT.h"
 
 // È la lunghezza della freccia -- serve per sapere quanto è “grande” un vettore
 double	vec_magnitude(const t_vector *vec)

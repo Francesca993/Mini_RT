@@ -10,13 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <stdio.h>
-# include "mathRT.h"
-# include <stdbool.h>
-# include "shape.h"
-# include "camera.h"
-# include "intersections.h"
-# include <math.h>
+# include "miniRT.h"
 
 /*
 Questa funzione calcola la normale di un piano in un certo punto,Serve per calcolare riflessi, luci, ombre

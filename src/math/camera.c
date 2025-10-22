@@ -10,17 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdbool.h>
-#include <math.h>
-#include "mathRT.h"
-#include "camera.h"
-#include "scene.h"  // definizione completa di t_scene
-
-#ifndef M_PI
-#define M_PI 3.14159265358979323846
-#endif
-
+# include "miniRT.h"
 
 /*
 questa funzione costruisce la camera nello spazio 3D pronta per generare raggi

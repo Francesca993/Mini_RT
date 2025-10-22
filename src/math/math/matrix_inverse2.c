@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/mathRT.h"
-#include <math.h>
+# include "miniRT.h"
 
 /*
 prendiamo una matrice 4x4

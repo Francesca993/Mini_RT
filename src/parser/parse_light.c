@@ -113,17 +113,17 @@ int	parse_light_line(t_scene *scene, char *rest_of_line)
 	/* Controlli */
 	if (scene == NULL || rest_of_line == NULL)
 		return (print_err_msg("Parametro mancante per 'L'"));
-	if (scene->lights.present == true)
+	if (scene->lights->present == true)
 		return (print_err_msg("Luce 'L' definito più di una volta"));
 	cursor = skip_spaces(rest_of_line);
 	/* Posizione: x,y,z */
 	if (parse_light(&cursor, &position_value, &light_ratiovalue, &color) == 1)
 		return (1);
 	/* Salva nella scena (normalizza il colore in [0..1]) */
-	scene->lights.position = position_value;
-	scene->lights.intensity = light_ratiovalue;
-	scene->lights.color = color;
-	scene->lights.present = true;
+	scene->lights->position = position_value;
+	scene->lights->intensity = light_ratiovalue;
+	scene->lights->color = color;
+	scene->lights->present = true;
 	scene->n_lights += 1;
 	return (0);
 }

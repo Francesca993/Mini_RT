@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color.h"
+# include "miniRT.h"
 
 /*
  somma due colori il risultato in res, c1 è il primo colore  c2 il secondo

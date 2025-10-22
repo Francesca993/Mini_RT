@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
-#include <stdio.h>
-#include "color.h"
-#include "mathRT.h"
-#include "scene.h"
+# include "miniRT.h"
 
 t_color	reflection_color(t_intersection *itx, t_scene *scene,
 		int remaining, int light_idx)

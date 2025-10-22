@@ -108,6 +108,11 @@ typedef struct s_ambient
 	bool present;  // per validare che A compaia una sola volta
 }			t_ambient;
 
+// MATRICI 
+typedef double			t_mat4[4][4];          // trasformazioni 3D (traslazioni, rotazioni, scaling)
+typedef double			t_mat3[3][3];          // utile per determinanti, inversione parziale
+typedef double			t_mat2[2][2];          // minor uso, solo per calcoli di supporto
+
 /* --- Camera --- */
 // Camera (C pos, dir normalizzata, FOV in gradi [0..180])
 // come un occhio nello spazio 3D
@@ -119,11 +124,11 @@ typedef struct s_camera
 	int    		fov_deg;    // come da file .rt (per debug/log) DA TOGLIERE  e lasciare solo double fov
 	double		fov;            // Field of view, campo visivo della camera, in radianti quanto zoommato
 	bool		present;
-	// double		pixel_size;     // Dimensione di un pixel nello spazio 3D proiettato sulla scena, per sapere quanto spostarsi nello spazio per passare da un pixel all’altro
-	// double		half_width;     // Metà larghezza e altezza del viewport (la “finestra” della camera) in unità della scena, per centrare i raggi
-	// double		half_height;
-	// t_mat4		transform;      // Matrice che trasforma i punti dalla camera allo spazio mondo, quando vogliamo spostare o ruotare la camera
-	// t_mat4		inv_trans;      // Matrice inversa di transform, Serve per trasformare i raggi dal mondo nello spazio locale della camera, fondamentale
+	 double		pixel_size;     // Dimensione di un pixel nello spazio 3D proiettato sulla scena, per sapere quanto spostarsi nello spazio per passare da un pixel all’altro
+	 double		half_width;     // Metà larghezza e altezza del viewport (la “finestra” della camera) in unità della scena, per centrare i raggi
+	 double		half_height;
+	 t_mat4		transform;      // Matrice che trasforma i punti dalla camera allo spazio mondo, quando vogliamo spostare o ruotare la camera
+	 t_mat4		inv_trans;      // Matrice inversa di transform, Serve per trasformare i raggi dal mondo nello spazio locale della camera, fondamentale
 }			t_camera;
 
 /* --- Luce --- */
@@ -202,9 +207,9 @@ typedef struct s_shape {
 
 	// Questi sopra mi bastano per calcolare intersezioni ray–shape
 
-    // t_mat4 transf;						//matrice trasformazione oggetto → mondo
-    // t_mat4 inv_transf;					//inversa per trasformare i raggi mondo → spazio locale dell’oggetto (importantissima!)
-	// t_mat4 norm_transform;  			// per trasformare normali
+     t_mat4 transf;						//matrice trasformazione oggetto → mondo
+     t_mat4 inv_transf;					//inversa per trasformare i raggi mondo → spazio locale dell’oggetto (importantissima!)
+	 t_mat4 norm_transform;  			// per trasformare normali
 
 } t_shape;
 
@@ -267,9 +272,9 @@ typedef struct s_settings
 typedef struct s_scene
 {
 	// istanze reali (da riempire via parser)
-	t_ambient amb; // A (una sola nel mandatory)
+	t_ambient ambient; // A (una sola nel mandatory)
 	t_camera cam;  // C (una sola nel mandatory)
-	t_light lights; // L (una sola nel mandatory)
+	//t_light lights; // L (una sola nel mandatory)
 	// contatori utili durante il parsing/validazione
 	int n_ambient; // per rilevare doppie dichiarazioni di A
 	int n_camera;  // per C
@@ -282,7 +287,10 @@ typedef struct s_scene
 	size_t		object_count; // quanti oggetti totali
 	t_objnode *obj_head; /* testa */
     t_objnode *obj_end; /* coda per append O(1) */
+
+	t_light lights[MAX_LIGHTS];
 	t_shape shapes[MAX_SHAPES];
+
 	// Aggiunta temporanea per la camera J
 	t_settings settings;
 }			t_scene;

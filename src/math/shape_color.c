@@ -10,15 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "scene.h"
-# include "color.h"
-# include "mathRT.h"
-# include "light.h"
-# include <stdbool.h>
-# include "shape.h"
-# include "camera.h"
-# include "intersections.h"
-# include <math.h>
+# include "miniRT.h"
 
 /*
 In base all’intersezione (il punto dove il raggio ha colpito),

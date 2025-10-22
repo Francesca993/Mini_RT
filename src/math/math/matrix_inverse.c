@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/mathRT.h"
+# include "miniRT.h"
 
 /*
 restituisce la determinante della matrice 2x2
