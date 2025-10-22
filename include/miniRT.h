@@ -14,6 +14,7 @@
 # define RT_H
 
 # include "../Libft/libft.h"
+# include "../mlx/mlx.h"
 # include "miniRT_struct.h"
 # include <math.h>
 # include <stdbool.h>

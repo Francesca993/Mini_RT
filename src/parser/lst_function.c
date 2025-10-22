@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#import "miniRT.h"
+# include "miniRT.h"
 
 /* reset dei soli campi lista (non libera: quello lo fa destroy) */
 void objlist_init(t_scene *scene)

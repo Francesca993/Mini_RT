@@ -67,7 +67,9 @@ int parse_plane(t_scene *scene, char *rest_of_line)
     payload.plane.color = color;
     /* 7) Append alla lista oggetti */
     if (object_list_append(scene, PLANE, payload) != 0)
-        return 1; /* object_list_append ha già stampato l'errore */
+	{
+        return (1); /* object_list_append ha già stampato l'errore */
+	}
 	return (0);
 }
 

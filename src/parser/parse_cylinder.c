@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#import "miniRT.h"
+# include "miniRT.h"
 
 /*
  Cylinder:
@@ -115,7 +115,9 @@ int parse_cylinder(t_scene *scene, char *rest_of_line)
 	payload.cylinder.height = height;
     /* 7) Append alla lista oggetti */
     if (object_list_append(scene, CYLINDER, payload) != 0)
-        return 1; /* object_list_append ha già stampato l'errore */
+        {
+			return (1);
+		} 
 	return (0);
 }
 

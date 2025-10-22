@@ -8,17 +8,15 @@ OBJ_DIR = obj
 INC     = -I include -I Libft -I mlx
 
 # Libraries
-#LIB     = -L ./Libft -lft -L ./mlx -lX11 -lXext -lm -lmlx -lbsd
-LIB     = -L ./Libft -lft
-MLX     = mlx
+LIB     = -L ./Libft -lft -L ./mlx -lmlx -lX11 -lXext -lm -lbsd
+#LIB     = -L ./Libft -lft -L
+MLX     = mlx/libmlx.a
 LFT     = Libft/libft.a
-LIBS    = -L Libft -lft
-#MLXFLAGS = -lm
+MLXFLAGS = -lm
 
 # Source & Object Files
-# Find all .c files under src
-SRC := $(shell find src -name '*.c')
-OBJ := $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRC))
+SRC = $(shell find $(SRC_DIR) -name '*.c')
+OBJ = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
 
 BLUE    = \033[0;34m
 GREEN   = \033[0;32m
@@ -27,13 +25,11 @@ YELLOW  = \033[0;33m
 BOLD    = \033[1;1m
 RESET   = \033[0m
 
-#all: $(LFT) mlx $(NAME)
-all: $(LFT) $(NAME)
+all: $(LFT) mlx $(NAME)
 
-#$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIB) $(MLXFLAGS)
 $(NAME): $(OBJ)
 	@echo "$(BLUE)$(BOLD)Compiling Mandatory..$(RESET)"
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIB)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIB) $(MLXFLAGS)
 	@echo "$(GREEN) ▄▄▄▄  ▄ ▄▄▄▄  ▄ ▗▄▄▖▗▄▄▄▖  "
 	@echo "$(GREEN) █ █ █ ▄ █   █ ▄ ▐▌ ▐▌ █    "
 	@echo "$(GREEN) █   █ █ █   █ █ ▐▛▀▚▖ █    "
@@ -42,7 +38,7 @@ $(NAME): $(OBJ)
 	@echo "$(BLUE)$(BOLD)Mandatory Ready!$(RESET)"
 
 # Compile .c to .o (with subfolder support)
-$(OBJ_DIR)/%.o: %.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
@@ -53,10 +49,10 @@ $(LFT):
 	@echo "$(GREEN)[ OK ]$(RESET) $(GREEN)Libft ready!$(RESET)"
 
 # MiniLibX
-#mlx:
-#	@echo "$(RED)[ .. ] | Compiling minilibx..$(RESET)"
-#	@make -s -C mlx
-#	@echo "$(GREEN)[ OK ]$(RESET)|$(GREEN)Minilibx ready!$(RESET)"
+mlx :
+	@echo "$(RED)[ .. ] | Compiling minilibx..$(RESET)"
+	@make -s -C mlx
+	@echo "$(GREEN)[ OK ]$(RESET)|$(GREEN)Minilibx ready!$(RESET)"
 
 clean:
 	@rm -rf $(OBJ_DIR)
@@ -70,5 +66,4 @@ fclean: clean
 re: fclean all
 
 .SILENT:
-.PHONY: all clean fclean re
-#.PHONY: all clean fclean re mlx
+.PHONY: all clean fclean re mlx

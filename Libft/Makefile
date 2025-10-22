@@ -20,7 +20,7 @@ BLUE	= \033[0;34m
 NAME	= libft.a
 
 CC		= cc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -fPIE
 
 SRC_DIR = .
 OBJS_DIR	=	obj/
@@ -80,7 +80,7 @@ $(OBJS_DIR)%.o: %.c
 	
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-all: $(NAME)
+all: $(NAME) 
 
 $(NAME): $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
