@@ -8,9 +8,9 @@ OBJ_DIR = obj
 INC     = -I include -I Libft -I mlx
 
 # Libraries
-#LIB     = -L ./Libft -lft -L ./mlx -lmlx -lX11 -lXext -lm -lbsd
-LIB     = -L ./Libft -lft
-#MLX     = mlx/libmlx.a
+LIB     = -L ./Libft -lft -L ./mlx -lmlx -lX11 -lXext -lm -lbsd
+#LIB     = -L ./Libft -lft
+MLX     = mlx/libmlx.a
 LFT     = Libft/libft.a
 MLXFLAGS = -lm
 
@@ -27,25 +27,25 @@ RESET   = \033[0m
 
 all: $(LFT) mlx $(NAME)
 
-# $(NAME): $(OBJ)
-# 	@echo "$(BLUE)$(BOLD)Compiling Mandatory..$(RESET)"
-# 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIB) $(MLXFLAGS)
-# 	@echo "$(GREEN) ▄▄▄▄  ▄ ▄▄▄▄  ▄ ▗▄▄▖▗▄▄▄▖  "
-# 	@echo "$(GREEN) █ █ █ ▄ █   █ ▄ ▐▌ ▐▌ █    "
-# 	@echo "$(GREEN) █   █ █ █   █ █ ▐▛▀▚▖ █    "
-# 	@echo "$(GREEN)       █       █ ▐▌ ▐▌ █    "
-# 	@echo "$(GREEN)                            $(RESET)"
-# 	@echo "$(BLUE)$(BOLD)Mandatory Ready!$(RESET)"
-
 $(NAME): $(OBJ)
 	@echo "$(BLUE)$(BOLD)Compiling Mandatory..$(RESET)"
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIB)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIB) $(MLXFLAGS)
 	@echo "$(GREEN) ▄▄▄▄  ▄ ▄▄▄▄  ▄ ▗▄▄▖▗▄▄▄▖  "
 	@echo "$(GREEN) █ █ █ ▄ █   █ ▄ ▐▌ ▐▌ █    "
 	@echo "$(GREEN) █   █ █ █   █ █ ▐▛▀▚▖ █    "
 	@echo "$(GREEN)       █       █ ▐▌ ▐▌ █    "
 	@echo "$(GREEN)                            $(RESET)"
 	@echo "$(BLUE)$(BOLD)Mandatory Ready!$(RESET)"
+
+# $(NAME): $(OBJ)
+# 	@echo "$(BLUE)$(BOLD)Compiling Mandatory..$(RESET)"
+# 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIB)
+# 	@echo "$(GREEN) ▄▄▄▄  ▄ ▄▄▄▄  ▄ ▗▄▄▖▗▄▄▄▖  "
+# 	@echo "$(GREEN) █ █ █ ▄ █   █ ▄ ▐▌ ▐▌ █    "
+# 	@echo "$(GREEN) █   █ █ █   █ █ ▐▛▀▚▖ █    "
+# 	@echo "$(GREEN)       █       █ ▐▌ ▐▌ █    "
+# 	@echo "$(GREEN)                            $(RESET)"
+# 	@echo "$(BLUE)$(BOLD)Mandatory Ready!$(RESET)"
 
 # Compile .c to .o (with subfolder support)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
@@ -59,10 +59,10 @@ $(LFT):
 	@echo "$(GREEN)[ OK ]$(RESET) $(GREEN)Libft ready!$(RESET)"
 
 # MiniLibX
-# mlx :
-# 	@echo "$(RED)[ .. ] | Compiling minilibx..$(RESET)"
-# 	@make -s -C mlx
-# 	@echo "$(GREEN)[ OK ]$(RESET)|$(GREEN)Minilibx ready!$(RESET)"
+mlx :
+	@echo "$(RED)[ .. ] | Compiling minilibx..$(RESET)"
+	@make -s -C mlx
+	@echo "$(GREEN)[ OK ]$(RESET)|$(GREEN)Minilibx ready!$(RESET)"
 
 clean:
 	@rm -rf $(OBJ_DIR)
