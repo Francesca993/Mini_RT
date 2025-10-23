@@ -6,7 +6,7 @@
 /*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 19:11:03 by francesca         #+#    #+#             */
-/*   Updated: 2025/10/22 21:01:50 by francesca        ###   ########.fr       */
+/*   Updated: 2025/10/23 08:36:02 by francesca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,18 @@ static inline void	camera_make(t_scene *scene)
 	ft_bzero(&scene->cam.inv_trans, sizeof(scene->cam.inv_trans));
 }
 
+static inline void settings_make(t_scene *scene)
+{
+	scene->settings.render_w = 0;   // larghezza finale dell'immagine renderizzata
+	scene->settings.render_h = 0;  // altezza finale dell'immagine renderizzata
+	scene->settings.edit_w = 0;    // larghezza in modalità "edit" risoluzione ridotta, usata per debug
+	scene->settings.edit_h = 0;     // altezza in modalità "edit" risoluzione ridotta, usata per debug
+	// scene->settings.edit_mode = false; // se true → usa edit_w/edit_h “render veloce” invece che render_w/render_h quello finale (false)
+	// 				// flag letto dentro camera_init per scegliere quale risoluzione usare
+
+	scene->settings.reflection_depth = 0;
+}
+
 static inline int light_init(t_scene *scene)
 {
     /* libera eventuale blocco precedente */
@@ -97,6 +109,7 @@ int	scene_reset(t_scene *scene)
 	camera_make(scene);
     if (light_init(scene) == 1)
         return (0);
+	settings_make(scene);
 	
 	return (1);
 }
