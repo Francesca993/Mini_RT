@@ -6,7 +6,7 @@
 /*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:24:06 by fmontini          #+#    #+#             */
-/*   Updated: 2025/10/22 21:00:55 by francesca        ###   ########.fr       */
+/*   Updated: 2025/10/23 08:39:26 by francesca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define RT_H
 
 # include "../Libft/libft.h"
-//# include "../mlx/mlx.h"
+# include "../mlx/mlx.h"
 # include "miniRT_struct.h"
 # include <math.h>
 # include <stdbool.h>
