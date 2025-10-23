@@ -6,7 +6,7 @@
 /*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 10:37:23 by francesca         #+#    #+#             */
-/*   Updated: 2025/10/22 11:47:55 by francesca        ###   ########.fr       */
+/*   Updated: 2025/10/22 20:47:01 by francesca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,17 +113,17 @@ int	parse_light_line(t_scene *scene, char *rest_of_line)
 	/* Controlli */
 	if (scene == NULL || rest_of_line == NULL)
 		return (print_err_msg("Parametro mancante per 'L'"));
-	if (scene->lights->present == true)
+	if (scene->n_lights >= 1 || scene->lights[0].present == true)
 		return (print_err_msg("Luce 'L' definito più di una volta"));
 	cursor = skip_spaces(rest_of_line);
 	/* Posizione: x,y,z */
 	if (parse_light(&cursor, &position_value, &light_ratiovalue, &color) == 1)
 		return (1);
 	/* Salva nella scena (normalizza il colore in [0..1]) */
-	scene->lights->position = position_value;
-	scene->lights->intensity = light_ratiovalue;
-	scene->lights->color = color;
-	scene->lights->present = true;
+	scene->lights[0].position = position_value;
+	scene->lights[0].intensity = light_ratiovalue;
+	scene->lights[0].color = color;
+	scene->lights[0].present = true;
 	scene->n_lights += 1;
 	return (0);
 }

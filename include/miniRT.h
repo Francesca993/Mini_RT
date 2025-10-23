@@ -6,7 +6,7 @@
 /*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:24:06 by fmontini          #+#    #+#             */
-/*   Updated: 2025/10/21 12:02:45 by francesca        ###   ########.fr       */
+/*   Updated: 2025/10/22 21:00:55 by francesca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define RT_H
 
 # include "../Libft/libft.h"
-# include "../mlx/mlx.h"
+//# include "../mlx/mlx.h"
 # include "miniRT_struct.h"
 # include <math.h>
 # include <stdbool.h>
@@ -45,9 +45,9 @@ void		debug_print_scene(const t_scene *scene_ptr, const char *title);
 
 /* ================= Free ================= */
 void		free_array(char **arr);
-void		scene_reset(t_scene *scene);
 int			print_err_msg(const char *msg);
 int			err_msg(char *type, int num, const char *msg);
+int			scene_reset(t_scene *scene);
 
 /* ================= ft_skip_spaces ================= */
 int			ft_is_blank(const char *s);

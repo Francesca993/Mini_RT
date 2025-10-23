@@ -6,7 +6,7 @@
 /*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 11:59:53 by francesca         #+#    #+#             */
-/*   Updated: 2025/10/21 12:03:09 by francesca        ###   ########.fr       */
+/*   Updated: 2025/10/22 19:31:28 by francesca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,16 @@ void objlist_init(t_scene *scene)
 {
     scene->obj_head = NULL;
     scene->obj_end = NULL;
+     /* --- contatori logici per validazione (A/C/L una sola volta) --- */
+    scene->n_ambient = 0;
+	scene->n_camera = 0;
+	scene->n_lights = 0;
+	scene->n_shapes = 0;
+	/* --- contatori oggetti geometrici --- */
+	scene->n_spheres = 0;
+	scene->n_planes = 0;
+	scene->n_cylinders = 0;
     scene->object_count = 0;
-    scene->n_spheres = 0;
-    scene->n_planes = 0;
-    scene->n_cylinders = 0;
 }
 
 /* libera tutta la lista (da chiamare alla chiusura del programma) */
@@ -40,10 +46,16 @@ void objlist_destroy(t_scene *scene)
     }
     scene->obj_head = NULL;
     scene->obj_end = NULL;
+     /* --- contatori logici per validazione (A/C/L una sola volta) --- */
+    scene->n_ambient = 0;
+	scene->n_camera = 0;
+	scene->n_lights = 0;
+	scene->n_shapes = 0;
+	/* --- contatori oggetti geometrici --- */
+	scene->n_spheres = 0;
+	scene->n_planes = 0;
+	scene->n_cylinders = 0;
     scene->object_count = 0;
-    scene->n_spheres = 0;
-    scene->n_planes = 0;
-    scene->n_cylinders = 0;
 }
 
 /* Aggiunge un nuovo nodo */

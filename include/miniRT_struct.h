@@ -6,7 +6,7 @@
 /*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:29:54 by francesca         #+#    #+#             */
-/*   Updated: 2025/10/21 23:54:11 by francesca        ###   ########.fr       */
+/*   Updated: 2025/10/22 21:03:40 by francesca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,11 +124,11 @@ typedef struct s_camera
 	int    		fov_deg;    // come da file .rt (per debug/log) DA TOGLIERE  e lasciare solo double fov
 	double		fov;            // Field of view, campo visivo della camera, in radianti quanto zoommato
 	bool		present;
-	 double		pixel_size;     // Dimensione di un pixel nello spazio 3D proiettato sulla scena, per sapere quanto spostarsi nello spazio per passare da un pixel all’altro
-	 double		half_width;     // Metà larghezza e altezza del viewport (la “finestra” della camera) in unità della scena, per centrare i raggi
-	 double		half_height;
-	 t_mat4		transform;      // Matrice che trasforma i punti dalla camera allo spazio mondo, quando vogliamo spostare o ruotare la camera
-	 t_mat4		inv_trans;      // Matrice inversa di transform, Serve per trasformare i raggi dal mondo nello spazio locale della camera, fondamentale
+	double		pixel_size;     // Dimensione di un pixel nello spazio 3D proiettato sulla scena, per sapere quanto spostarsi nello spazio per passare da un pixel all’altro
+	double		half_width;     // Metà larghezza e altezza del viewport (la “finestra” della camera) in unità della scena, per centrare i raggi
+	double		half_height;
+	t_mat4		transform;      // Matrice che trasforma i punti dalla camera allo spazio mondo, quando vogliamo spostare o ruotare la camera
+	t_mat4		inv_trans;      // Matrice inversa di transform, Serve per trasformare i raggi dal mondo nello spazio locale della camera, fondamentale
 }			t_camera;
 
 /* --- Luce --- */
@@ -288,7 +288,7 @@ typedef struct s_scene
 	t_objnode *obj_head; /* testa */
     t_objnode *obj_end; /* coda per append O(1) */
 
-	t_light lights[MAX_LIGHTS];
+	t_light *lights;
 	t_shape shapes[MAX_SHAPES];
 
 	// Aggiunta temporanea per la camera J

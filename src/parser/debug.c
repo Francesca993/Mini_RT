@@ -6,7 +6,7 @@
 /*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 14:26:12 by francesca         #+#    #+#             */
-/*   Updated: 2025/10/22 11:47:33 by francesca        ###   ########.fr       */
+/*   Updated: 2025/10/22 20:54:08 by francesca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,10 +144,10 @@ void debug_print_scene(const t_scene *scene_ptr, const char *title)
 
 	/* --- Light (mandatory: una sola) --- */
 	printf(" --- LIGHT  --- \n");
-	debug_print_bool("present", scene_ptr->lights->present);
-	debug_print_vector("pos", scene_ptr->lights->position);
-	printf("intensity: %.6f\n", scene_ptr->lights->intensity);
-	debug_print_color_255("color: ", scene_ptr->lights->color);
+	debug_print_bool("present", scene_ptr->lights[0].present);
+	debug_print_vector("pos", scene_ptr->lights[0].position);
+	printf("intensity: %.6f\n", scene_ptr->lights[0].intensity);
+	debug_print_color_255("color: ", scene_ptr->lights[0].color);
 	printf("\n");
 
 	/* --- Contatori di validazione --- */
